@@ -7,12 +7,12 @@ class Recipe_Class(models.Model):
   RecipeClassDescription = models.CharField(max_length=30)
 
   def __str__(self):
-    return (self.RecipeClassDescription)
+    return (str(self.id))
 
 class Recipe(models.Model):
     RecipeTitle = models.CharField(max_length=50)
-    Preparation = models.TextField
-    Notes = models.TextField
+    Preparation = models.CharField(max_length=2000)
+    Notes = models.CharField(max_length=2000)
     RecipeClassID = models.ForeignKey(Recipe_Class, on_delete=models.CASCADE)
 
     def __str__(self):
