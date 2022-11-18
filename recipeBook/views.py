@@ -3,8 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def indexPageView(request) :
-    sOutput = '<html><head><title>My Title</title></head><body><p><b>This is the main page</b></p></body></html>'
-    return HttpResponse(sOutput) 
+    return render(request, 'recipeBook/index.html') 
 
 def createPageView(request) :
     sOutput = '<html><head><title>My Title</title></head><body><p>Welcome to create page</p></body></html>'
