@@ -14,17 +14,14 @@ class Recipe(models.Model):
     Preparation = models.TextField
     Notes = models.TextField
     RecipeClassID = models.ForeignKey(Recipe_Class, on_delete=models.CASCADE)
+
     def __str__(self):
         return (self.RecipeTitle)
 
-class Ingredient_Class(models.Model):
-                IngredientClassDescription = models.CharField(max_length=30)
-                def __str__(self):
-                    return (self.IngredientClassDescription)
-
 class Ingredient(models.Model):
     IngredientName = models.CharField(max_length=20)
-    IngredientClassID = models.ForeignKey(Ingredient_Class, on_delete=models.CASCADE)
+
+    RecipeID = models.ManyToManyField('Recipe', through='Recipe_Ingredient')
 
     def __str__(self):
         return (self.IngredientName)

@@ -6,13 +6,10 @@ def indexPageView(request) :
     return render(request, 'recipeBook/index.html') 
 
 def createPageView(request) :
-    sOutput = '<html><head><title>My Title</title></head><body><p>Welcome to create page</p></body></html>'
-    return HttpResponse(sOutput) 
+    return render(request, 'recipeBook/create.html')
 
 def updatePageView(request) :
-    sOutput = '<html><head><title>My Title</title></head><body><p>Welcome to update page</p></body></html>'
-    return HttpResponse(sOutput)
+    return render(request, 'recipeBook/update.html')
 
 def readPageView(request) :
-    sOutput = '<html><head><title>My Title</title></head><body><p>Welcome to read page</p></body></html>'
-    return HttpResponse(sOutput) 
+    return render(request, 'recipeBook/read.html') 
