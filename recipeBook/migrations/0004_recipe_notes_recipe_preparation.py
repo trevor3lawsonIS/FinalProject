@@ -13,13 +13,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='recipe',
             name='Notes',
-            field=models.CharField(default='null', max_length=2000),
-            preserve_default=False,
+            field=models.CharField(max_length=2000, null=True),
         ),
         migrations.AddField(
             model_name='recipe',
             name='Preparation',
-            field=models.CharField(default='null', max_length=2000),
-            preserve_default=False,
+            field=models.CharField(max_length=2000, null=True),
         ),
     ]

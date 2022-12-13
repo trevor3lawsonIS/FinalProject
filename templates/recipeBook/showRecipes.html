@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{% load static%}
+{% block content %} 
+
+<div>
+    <h1>Recipes</h1>
+</div>
+<br>
+    {% for r in rcp%}
+    <label style='color: #B4886B;
+    font-weight: bold;
+    font-size: x-large;
+    display: block;
+    width: 150px;'>{{r.RecipeTitle}}</label>
+    <form name="form" method="post" action={% url 'showRecipe' r.id %}>
+        {% csrf_token %}
+        <input type = 'hidden' id='rcpID' name = 'rcpID' value = '{{r.id}}'>
+        <button type="submit">View Recipe</button>
+    </form>
+    <a href={% url 'deleteRecipe' recID=r.id %}>Delete Recipe</a>
+    <br><br>
+
+    {%endfor%}
+<a href={% url 'addRecipe'%} >Step 1: Add Recipe</a>
+
+{% endblock %}
