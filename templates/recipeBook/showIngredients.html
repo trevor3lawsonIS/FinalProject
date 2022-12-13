@@ -5,15 +5,25 @@
 <div>
     <h1>Ingredients</h1>
 </div>
-<br>
-<p>
+<button onclick="document.location={% url 'addIngredient' %}">Add Ingredient</button>
+<br><br>
+<table>
+    <tr>
+      <th style="font-size: 25px; width:20%;"></th>
+      <th style="font-size: 25px; width:20%;"></th>
+      <th style="width: max-content;"><u>Ingredient</u></th>
+    </tr>
     {% for i in ing%}
-        {{i.IngredientName}}
-        <a href={% url 'showIngredient' ingID=i.id %}>Edit Ingredient</a>
-        <a href={% url 'deleteIngredient' ingID=i.id %}>Delete Ingredient</a>
-        <br>
+    <tr>
+        <td>
+            <button onclick="document.location={% url 'deleteIngredient' ingID=i.id %}">Delete</button>
+        </td>
+      <td>
+        <button onclick="document.location={% url 'showIngredient' ingID=i.id %}">Edit</button>
+    </td>
+    <td>{{i.IngredientName}}</td>
+    </tr>
     {%endfor%}
-<a href = {% url 'addIngredient' %}>Add Ingredient</a>
-</p>
+  </table>
 
 {% endblock %}
